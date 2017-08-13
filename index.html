@@ -1,0 +1,26 @@
+<html>
+<head><title>bmap: Linux file sector mapper</title></head>
+
+<a href="README">Release notes for this version</a>
+
+<h3>Extracting trailing file data (slack)</h3>
+<ol>
+	<li>extract the slack from the target file.
+	<br><tt>bmap --slack target_file > file_slack</tt>
+	<li>Done
+</ol>
+
+<h3>Undeleting files</h3>
+<ol>
+	<li>Determine byte offset of string with respect to beginning of block
+		device containing filesystem
+	<li>compute sector(s) containing string
+	<li>generate inode sector lists exhaustively over the filesystem.
+	<br><tt>find * -exec bmap {} >> /another_file_system/blocks \;</tt>
+	<li>sort lists from step (4) into a single list.
+	<br><tt>cat /another_file_system/blocks | sort -n | uniq > /another_file_system/blocks.sorted</tt>	
+	<li>identify the contiguous set of unallocated sectors surrounding
+		the sectors from step (3).
+	<li>extract the sector set identified in step (6).
+	<li>Done
+</ol>

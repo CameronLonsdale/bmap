@@ -1,0 +1,28 @@
+mft: Mcgruff Forensics Toolkit
+
+ Written 2000 by Daniel Ridge in support of:
+   Scyld Computing Corporation.
+
+ The author may be reached as newt@scyld.com or C/O
+   Scyld Computing Corporation
+   10227 Wincopin Circle, Suite 212
+   Columbia, MD 21044
+
+ This code is licensed to you under the terms of the GPL.
+ See the file COPYING in this distribution for the terms.
+
+---
+
+VORSICHT!
+
+---
+
+VERSION CHANGES
+
+0.9.1: (4/13/2000) newt@scyld.com
+	* fully seperated from the 'mcgruff' tool.
+	  Now versioned and documented seperately...
+	  notes about the heritage of this code may be gleaned from the
+	  'bmap' and 'mcgruff' package changelog notes. Both of these
+	  packages are available from Scyld Computing Corporation under
+	  the GPL.

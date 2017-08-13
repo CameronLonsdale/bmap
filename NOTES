@@ -1,0 +1,20 @@
+OBSERVATIONS about 'bmap' in action.
+
+(This document has been largely superceded by application notes contained in
+ the bmap documentation)
+
+* ext2 reports file blockcounts overzealously. stat() returns a blockcount
+  measured in sectors on the author's system. However, stat claims that the
+  the stat(2) manpage suggests that this blockcount may not be in the same
+  units reported by bmap system call, but instead may be expressed in 
+  'optimal' transfer units. The author has trouble buying an optimal transfer
+  blocksize of 512 bytes.
+
+  The kernel correctly reports the bmap blocksize with ioctl(FIGETBSZ,...). 
+
+* stat _seems_ to report extra blocks for ext2 files over 12k. Does stat
+  get caught up in the size of metadata affiliated with a file? 
+  UPDATE: Walter Hofmann reported that indirect blocks count against the
+  stat-reported size in blocks.
+
+* holes can be tricky to deal with

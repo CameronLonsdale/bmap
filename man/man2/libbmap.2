@@ -1,0 +1,71 @@
+.TH LIBBMAP 2 "March 2000" "1.0.11" "Brazil Programmer's Manual"
+.SH NAME
+bmap_get_slack_block,
+.br
+bmap_get_block_size,
+.br
+bmap_get_block_count,
+.br
+bmap_map_block,
+.br
+bmap_raw_open,
+.br
+bmap_raw_close,
+.br
+	\- Linux filesystem block-mapper routines.
+.SH SYNOPSIS
+.B #include <sys/stat.h>
+.br
+.B #include <bmap.h>
+.sp
+.B int bmap_get_slack_block(int fd,long *slack_block,long *slack_bytes,long *block_size);
+.br
+.B int bmap_get_block_size(int fd);
+.br
+.B int bmap_get_block_count(int fd,const struct stat *statval);
+.br
+.B int bmap_map_block(int fd,unsigned long block);
+.br
+.B int bmap_raw_open(const char *filename,mode_t mode);
+.br
+.B void bmap_raw_close(int fd);
+.br
+.SH DESCRIPTION
+.B fork
+creates a child process that differs from the parent process only in its
+PID and PPID, and in the fact that resource utilizations are set to 0.
+File locks and pending signals are not inherited.
+.PP
+Under Linux,
+.B fork
+is implemented using copy-on-write pages, so the only penalty incurred by
+fork is the time and memory required to duplicate the parent's page tables,
+and to create a unique task structure for the child.
+.SH "RETURN VALUE"
+On success, the PID of the child process is returned in the parent's thread
+of execution, and a 0 is returned in the child's thread of execution.  On
+failure, a \-1 will be returned in the parent's context, no child process
+will be created, and
+.I errno
+will be set appropriately.
+.SH ERRORS
+.TP
+.B EAGAIN
+.B fork
+cannot allocate sufficient memory to copy the parent's page tables and
+allocate a task structure for the child.
+.TP
+.B ENOMEM
+.B fork
+failed to allocate the necessary kernel structures because memory is tight.
+.SH BUGS
+Under Linux,
+.B vfork
+is merely an alias for
+.BR fork .
+.SH "CONFORMING TO"
+The
+.B fork
+call conforms to SVr4, SVID, POSIX, X/OPEN, BSD 4.3.
+.SH "SEE ALSO"
+.BR clone "(2), " execve "(2), " wait (2)
