@@ -14,7 +14,7 @@ BINDIR = "/usr/local/bin"
 LIBDIR = "/usr/local/lib"
 MANDIR = "/usr/local/man"
 
-CFLAGS = -Wall -g
+CFLAGS = -Wall -g -m32
 CPPFLAGS = -I. -Iinclude
 
 MFT_STATIC_LIBRARIES = libmft.a
@@ -30,7 +30,7 @@ mft_config.h: Makefile
 install: all
 
 libmft.a: option.o log.o helper.o
-	$(LD) -r --whole-archive -o $@ $^
+	$(LD) -m elf_i386 -r --whole-archive -o $@ $^
 
 clean:
 	rm -f core `find . -name '*.[oas]' -print`

@@ -72,7 +72,7 @@ struct mft_option {
 struct mft_venum {
 	char *name;	/* name of enumerator */
 	char *desc;	/* text blurb */
-        int type;
+	int type;
 	int defval;
 };
 

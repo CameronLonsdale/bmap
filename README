@@ -26,6 +26,9 @@ WARNING: This may spank your hard drive.
 
 VERSION CHANGES
 
+1.0.18: (08/13/2017) cameron.lonsdale@gmail.com
+	* forced 32 bit build to fix struct alignment issue on 64 bit machines.
+
 1.0.17: (4/14/2000) newt@scyld.com
 	* removed archaic index.html
 	* removed mft as an included component. The scyld packager

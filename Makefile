@@ -3,7 +3,7 @@
 #
 PKG_NAME = "bmap"
 VERSION = 1
-PATCHLEVEL = 0.17
+PATCHLEVEL = 0.18
 BUILD_DATE = $(shell date +%D)
 AUTHOR = "newt@scyld.com"
 
@@ -25,9 +25,9 @@ BOGUS_MAJOR = 123
 BOGUS_MINOR = 123
 BOGUS_FILENAME = "/.../image"
 
-CFLAGS = -Wall -g
+CFLAGS = -Wall -g -m32
 CPPFLAGS = -I$(MFT_INCLUDE_DIR) -Iinclude
-LDFLAGS = -L$(MFT_LIB_DIR) -lmft
+LDFLAGS = -L$(MFT_LIB_DIR) -lmft -m32
 
 BINARIES = bmap slacker
 LIBRARIES = $(STATIC_LIBRARIES) $(SHARED_LIBRARIES)
