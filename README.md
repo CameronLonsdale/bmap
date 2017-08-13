@@ -1,7 +1,5 @@
 # Cameron's Note:
-bmap source code from 2000 would build correctly on my 64-bit machine but there was a struct alignment issue.
-This was due to the implementation being 32-bit specific, so forcing gcc to compile for 32-bit arhictecture fixes this issue.
-Enjoy the program!
+bmap source code from 2000 would build correctly on my 64-bit machine but there was a struct alignment issue. This was due to the implementation being 32-bit specific, so forcing gcc to compile for 32-bit arhictecture fixes this issue. Enjoy the program!
 
 # Install
 Run `make`
